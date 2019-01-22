@@ -1,0 +1,217 @@
+#all-tasks {
+    height: 100%;
+    overflow: auto;
+    .header {
+      background: url('http://www.hdwallpaperslife.com/wp-content/uploads/2017/05/snowboard_snow_mountains_74083_1680x1050.jpg') center center;
+      background-repeat: no-repeat;
+      width: 100%;
+      background-size: cover;
+      color: $white;
+      .top {
+        background: rgba(169,169,169,.6);
+        padding: 50px 15px;
+        text-align: right;
+        .logo {
+          font-family: 'Poiret One', cursive;
+          font-size: 36px;
+          float: left;
+        }
+        .tasks-total{
+          position: relative;
+          top: -7px;
+          .task{
+            display: inline-block;
+            .number{
+              color: $blue;
+              font-weight: 100;
+              font-size: 40px;
+              margin: 0 20px 0 0;
+              position: relative;
+              top: 9px;
+            }
+          }
+        }
+      }
+      .add-circle{
+        background: $darkgrey;
+        border-radius: 50%;
+        padding: 8px 12px;
+        position: absolute;
+        top: 105px;
+        right: 25px;
+        .fa{
+          color: $blue;
+          font-size: 50px;
+        }
+      }
+    }
+    .content-area {
+      color: $darkgrey;
+      width: 100%;
+      overflow: auto;
+      .tasks-container {
+        margin: 40px 0;
+        .task-box {
+            padding: 20px;
+            border-bottom: 2px solid #D1D1D1;
+            margin: 20px 0 20px 0;
+            background: white;
+            position: relative;
+            .title {
+                color: black;
+                font-size: 24px;
+                margin: 0 0 15px 0;
+             }
+              .date {
+                color: $darkgrey;
+                font-size: 14px;
+             }
+             .check-box {
+               padding: 5px;
+               border-radius: 10px;
+               border: 3px solid $offwhite;
+               display: inline-block;
+               position: absolute;
+               right: 25px;
+               top: 20px;
+               font-size: 32px; 
+               color: $blue;
+             }
+          }
+        }
+      }
+      .task-form {
+        background: $blue;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        color: $white;
+        transform: translate(0, 100%);
+        transition: all .6s ease-in-out; 
+        &.active {
+          transform: translate(0, 0);
+        }
+        .close-btn {
+          position: absolute;
+          right: 35px;
+          top: 35px;
+          padding: 15px;
+          cursor: pointer;
+          .fa {
+            font-size: 36px;
+
+          }
+        }
+        form {
+          display: block;
+          max-width: 500px;
+          margin: 0 auto;
+          padding: 15px;
+        }
+        h3 {
+          margin: 50px 0;
+          font-size: 36px;
+          text-align: center;
+          text-transform: uppercase;
+        }
+        .form-group {
+          margin-bottom: 30px;
+        }
+        label {
+          display: block;
+          text-transform: capitalize;
+          font-family: 'Roboto', cursive;
+          font-weight: 300;
+          font-size: 26px;
+          margin: 0 0 15px 0;
+        }
+        input[type="text"], textarea {
+          width: 100%;
+          background: rgba(255, 255, 255, .2);
+          border: none;
+          border-bottom: 1px solid rgba(255, 255, 255, .7);
+          text-transform: uppercase;
+          font-family: 'Roboto', cursive;
+          font-weight: 300;
+          font-size: 36px;
+          color: $darkgrey;
+          &:focus {
+            border: none;
+            outline: none;
+          }
+        }
+        textarea {
+          height: 150px;
+        }
+        button {
+          background: $darkgrey;
+          border: none;
+          width: 100%;
+          font-size: 16px;
+          text-transform: uppercase;
+          color: $white;
+          padding:  30px 20px;
+        }
+      }
+    }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+    padding: 0 15px;
+  }
+
+  // LapTop
+@media screen and (min-width: 1200px) {
+  #all-tasks {
+     
+  }
+}
+
+// Tablet
+@media screen and (max-width: 1199px) {
+  
+  
+}
+
+  // Phones
+  @media screen and (max-width: 767px) {
+        #all-tasks {
+          .header {
+            .add-circle{
+              background: #a9a9a9;
+              border-radius: 50%;
+              padding: 8px 12px;
+              position: absolute;
+              top: 124px;
+              right: 25px;
+            }
+            .top {
+              .tasks-total {
+                top: 0;
+                .task {
+                  display: block;
+                  .number {
+                    color: #CAEBF2;
+                    font-weight: 500;
+                    font-size: 30px;
+                    margin: 0 10px 0 0;
+                    position: relative;
+                    top: 3px;
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+#home {
+    background: url('http://www.hdwallpaperslife.com/wp-content/uploads/2017/05/snowboard_snow_mountains_74083_1680x1050.jpg') center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    .welcome-box {
+      background: rgba(0,0,0,.5);
+      padding: 35px 20px;
+      text-align: center;
+    
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      text-transform: uppercase;
+      font-size: 28px;
+      }
+      a {
+        text-decoration: none;
+        color: $white;
+      }
+    }
+  }
+  

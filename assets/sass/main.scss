@@ -1,0 +1,32 @@
+@import "reset";
+$white: #fff;
+$blue: #CAEBF2;
+$darkgrey: #A9A9A9;
+$red: #FF3B3F;
+$offwhite: #EFEFEF;
+
+*, h1, h2, h3, h4, h5, h6, p, span, div {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+html, body{   
+  background: #EDEDED;
+  height: 100%;
+  overflow: hidden;
+}
+
+@import "home";
+@import "all-tasks";
+
+
+
+.btn {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 15px 0;
+  &.blue {
+    font-size: 25px;
+    background: $blue;
+  }
+}
