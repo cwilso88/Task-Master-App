@@ -33,7 +33,7 @@
       <!-- CONTENT AREA -->
       <section class="content-area"> 
         <div class="container">
-          <div class="tasks-container">
+          <div id="main-task-box" class="tasks-container">
             <div class="task-box"> 
               <div class="title">
                   CLEAN ROOM
@@ -73,7 +73,7 @@
 
 
       <section class="task-form">
-        <form>
+        <form id="mainTask-form">
           <div class="close-btn">
               <i class="fa fa-times" aria-hidden="true"></i>
           </div>
@@ -81,15 +81,15 @@
 
             <div class="form-group">
               <label for="title:">Title:</label>
-              <input type="text" name="title">
+              <input id="title" type="text" name="title">
             </div>
             <div class="form-group">
                 <label for="title:">Category:</label>
-                <input type="text" name="category">
+                <input id="category" type="text" name="category">
             </div>
             <div class="form-group">
                   <label for="title:">Notes:</label>
-                  <textarea name="notes"></textarea>
+                  <textarea id="notes" name="notes"></textarea>
             </div>
             <div class="form-group">
                   <button  class="form-group" type="submit">Add New Task</button>
@@ -100,7 +100,8 @@
     </div>
 
 
-    <script
+    
+  <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script>
@@ -125,7 +126,69 @@
       })
         
       })
-    
+
+
+
+
+  // ***** ADD A TASK *****
+
+  //Task Constructor
+      function Task(title, category, notes) {
+        this.title = title;
+        this.category = category;
+        this.notes = notes;
+      }
+
+  //UI Constructor 
+      function UI() {}
+
+      UI.prototype.addTaskToList = function(task) {
+        const list = document.getElementsByID('main-task-box');
+
+        //CREATE TASK-BOX
+          const newTaskBox = document.createElement('div');
+        //Insert HTML
+          newTaskBox.innerHTML = `
+          <div class="task-box"> 
+                <div class="title">
+                    ${task.title}
+                </div> 
+                <div class="date">
+                  Created: ${task.category}
+                </div>
+                <div class="check-box">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </div>
+          </div>
+          `;
+                
+          list.appendChild(newTaskBox);
+        }
+
+  // Event Listeners 
+  document.getElementById('mainTask-form').addEventListener('submit', 
+    function(e){
+      //GET FORM VALUES
+      const title = document.getElementById('title').value,
+            category = document.getElementById('category').value,
+            notes = document.getElementById('notes').value
+
+      //INSTANTIATE TASK
+      const task = new Task(title, category, notes);    
+      
+      //INSTANTIATE UI
+      const ui = new UI();
+
+      //ADD TASK TO LIST
+      ui.addTaskToList(task);
+
+      console.log(task);
+      e.preventDefault();
+    });
+
+
   </script>
+
+  
   </body>
 </html>

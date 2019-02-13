@@ -5,7 +5,7 @@ webpackJsonp([0],[
 "use strict";
 
 
-console.log('Welcome To The Rocky Stack');
+alert("Hello World");
 
 /***/ })
 ],[0]);
