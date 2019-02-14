@@ -94,7 +94,6 @@
             <div class="form-group">
                   <button  class="form-group" type="submit">Add New Task</button>
             </div>
-            
         </form>
       </section>
     </div>
@@ -144,7 +143,52 @@
   
   function UI(){}
 
+  UI.prototype.addTaskToList = function(task){
+    const list = document.getElementById('main-task-box');
+    // Create div element
+    const row = document.createElement('div');
 
+    // Insert HTML
+    row.innerHTML = `
+    <div class="title">${task.title}</div> 
+    <div class="date">Created: ${task.category}</div>
+    <div class="check-box">
+       <i class="fa fa-check" aria-hidden="true"></i>
+    </div>
+    `;
+
+    list.appendChild(row);
+  }
+
+  // Show Alert 
+
+  UI.prototype.showAlert = function(message, className) {
+    // Create div
+    const div = document.createElement('div');
+    // Add classes
+    div.className = `alert ${className}`;
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // Get parent
+    const container = document.querySelector('.container');
+    // Get form
+    const form = document.querySelector('#task-form');
+    // Insert form
+    container.insertBefore(div, form);
+
+    //Timeout after 3 sec
+    setTimeout(function(){
+      document.querySelector('.alert')
+        .remove();
+    }, 3000);
+  }
+
+  // Clear Fields
+  UI.prototype.clearFields = function() {
+    document.getElementById('title').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('notes').value = '';
+  }
 
   // Event Listeners
   document.getElementById('mainTask-form').addEventListener('submit', function(e){
@@ -160,7 +204,24 @@ console.log(title, category, notes);
     const task = new Task(title, category, notes);
 
 
-console.log(task);
+    // Instantiate UI
+    const ui = new UI();
+
+
+    // Validate
+    if(title === '' || category === '' || notes === '') {
+      // Error Alert
+      UI.showAlert('Please fill in all fields', 'error');
+    } else {
+      // Add task to List
+    ui.addTaskToList(task);
+
+
+      // Clear fields
+      ui.clearFields();
+    }
+    
+    
     e.preventDefault();
   });
 
