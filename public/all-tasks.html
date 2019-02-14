@@ -132,60 +132,37 @@
 
   // ***** ADD A TASK *****
 
-  //Task Constructor
-      function Task(title, category, notes) {
-        this.title = title;
-        this.category = category;
-        this.notes = notes;
-      }
+  // Task Constructor 
 
-  //UI Constructor 
-      function UI() {}
+  function Task(title, category, notes) {
+    this.title = title;
+    this.category = category;
+    this.notes = notes;
+  }
 
-      UI.prototype.addTaskToList = function(task) {
-        const list = document.getElementsByID('main-task-box');
+  // UI Constructor 
+  
+  function UI(){}
 
-        //CREATE TASK-BOX
-          const newTaskBox = document.createElement('div');
-        //Insert HTML
-          newTaskBox.innerHTML = `
-          <div class="task-box"> 
-                <div class="title">
-                    ${task.title}
-                </div> 
-                <div class="date">
-                  Created: ${task.category}
-                </div>
-                <div class="check-box">
-                  <i class="fa fa-check" aria-hidden="true"></i>
-                </div>
-          </div>
-          `;
-                
-          list.appendChild(newTaskBox);
-        }
 
-  // Event Listeners 
-  document.getElementById('mainTask-form').addEventListener('submit', 
-    function(e){
-      //GET FORM VALUES
-      const title = document.getElementById('title').value,
-            category = document.getElementById('category').value,
-            notes = document.getElementById('notes').value
 
-      //INSTANTIATE TASK
-      const task = new Task(title, category, notes);    
-      
-      //INSTANTIATE UI
-      const ui = new UI();
+  // Event Listeners
+  document.getElementById('mainTask-form').addEventListener('submit', function(e){
+    // Get Form Values
+    const title = document.getElementById('title').value,
+          category = document.getElementById('category').value,
+          notes = document.getElementById('notes').value
 
-      //ADD TASK TO LIST
-      ui.addTaskToList(task);
 
-      console.log(task);
-      e.preventDefault();
-    });
 
+console.log(title, category, notes);
+    // Instantiate task
+    const task = new Task(title, category, notes);
+
+
+console.log(task);
+    e.preventDefault();
+  });
 
   </script>
 
