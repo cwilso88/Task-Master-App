@@ -147,16 +147,23 @@
     const list = document.getElementById('main-task-box');
     // Create div element
     const row = document.createElement('div');
+    
 
     // Insert HTML
     row.innerHTML = `
-    <div class="title">${task.title}</div> 
-    <div class="date">Created: ${task.category}</div>
+    <div class="title">
+      ${task.title}
+    </div> 
+    <div class="date">
+      Created: ${task.category}
+    </div>
     <div class="check-box">
-       <i class="fa fa-check" aria-hidden="true"></i>
+        <i class="fa fa-check" aria-hidden="true"></i>
     </div>
     `;
-
+    
+    
+    
     list.appendChild(row);
   }
 
@@ -196,8 +203,6 @@
     const title = document.getElementById('title').value,
           category = document.getElementById('category').value,
           notes = document.getElementById('notes').value
-
-
 
 console.log(title, category, notes);
     // Instantiate task
