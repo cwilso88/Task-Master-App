@@ -84,8 +84,8 @@
               <input id="title" type="text" name="title">
             </div>
             <div class="form-group">
-                <label for="title:">Category:</label>
-                <input id="category" type="text" name="category">
+                <label for="title:">Due Date:</label>
+                <input id="date" type="text" name="date">
             </div>
             <div class="form-group">
                   <label for="title:">Notes:</label>
@@ -133,9 +133,9 @@
 
   // Task Constructor 
 
-  function Task(title, category, notes) {
+  function Task(title, date, notes) {
     this.title = title;
-    this.category = category;
+    this.date = date;
     this.notes = notes;
   }
 
@@ -149,16 +149,29 @@
     const taskItem = document.createElement('div');
     const titleItem = document.createElement('div');
     const dateItem = document.createElement('div');
+    const checkBoxItem = document.createElement('div');
+    const checkItem = document.createElement('i');
     
 
     // Add ClassName
-    taskItem.className = "task-box";
-    titleItem.className = "title";
+    taskItem.classList.add('task-box');
+    titleItem.classList.add('title');
     dateItem.classList.add('date');
+    notesItem.classList.add('notes');
+    checkBoxItem.classList.add('check-box');
+    checkItem.classList.add('fa');
 
     // Insert HTML
-    row.innerHTML = `
-    
+    titleItem.innerHTML = `
+    ${task.title}
+    `;
+
+    dateItem.innerHTML = `
+    ${task.date}
+    `;
+
+    notesItem.innerHTML = `
+    ${task.notes}
     `;
     
     
@@ -192,7 +205,7 @@
   // Clear Fields
   UI.prototype.clearFields = function() {
     document.getElementById('title').value = '';
-    document.getElementById('category').value = '';
+    document.getElementById('date').value = '';
     document.getElementById('notes').value = '';
   }
 
@@ -200,12 +213,12 @@
   document.getElementById('mainTask-form').addEventListener('submit', function(e){
     // Get Form Values
     const title = document.getElementById('title').value,
-          category = document.getElementById('category').value,
+          category = document.getElementById('date').value,
           notes = document.getElementById('notes').value
 
-console.log(title, category, notes);
+console.log(title, date, notes);
     // Instantiate task
-    const task = new Task(title, category, notes);
+    const task = new Task(title, date, notes);
 
 
     // Instantiate UI
