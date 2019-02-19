@@ -146,25 +146,24 @@
   UI.prototype.addTaskToList = function(task){
     const list = document.getElementById('main-task-box');
     // Create div element
-    const row = document.createElement('div');
+    const taskItem = document.createElement('div');
+    const titleItem = document.createElement('div');
+    const dateItem = document.createElement('div');
     
+
+    // Add ClassName
+    taskItem.className = "task-box";
+    titleItem.className = "title";
+    dateItem.classList.add('date');
 
     // Insert HTML
     row.innerHTML = `
-    <div class="title">
-      ${task.title}
-    </div> 
-    <div class="date">
-      Created: ${task.category}
-    </div>
-    <div class="check-box">
-        <i class="fa fa-check" aria-hidden="true"></i>
-    </div>
+    
     `;
     
     
-    
-    list.appendChild(row);
+    // Append to DOM
+    list.appendChild(taskItem);
   }
 
   // Show Alert 
