@@ -41,6 +41,9 @@
               <div class="date">
                 Created: August 31, 2018
               </div>
+              <div class="notes">
+                  Complete by Friday.
+              </div>
               <div class="check-box">
                 <i class="fa fa-check" aria-hidden="true"></i>
               </div>
@@ -52,6 +55,9 @@
                 <div class="date">
                   Created: August 28, 2018
                 </div>
+                <div class="notes">
+                    Go to Kroger for specials.
+                  </div>
                 <div class="check-box">
                   <i class="fa fa-check" aria-hidden="true"></i>
                 </div>
@@ -62,6 +68,9 @@
                 </div> 
                 <div class="date">
                   Created: August 29, 2018
+                </div>
+                <div class="notes">
+                    Contact co-workers to finalize.
                 </div>
                 <div class="check-box">
                   <i class="fa fa-check" aria-hidden="true"></i>
@@ -106,7 +115,9 @@
   crossorigin="anonymous"></script>
 
   <script>
-    $(document).ready(function(){
+
+
+$(document).ready(function(){
       $('.add-circle').on('click', function(){
         $('.task-form').addClass('active')
       })
@@ -125,10 +136,7 @@
       })
         
       })
-
-
-
-
+    
   // ***** ADD A TASK *****
 
   // Task Constructor 
@@ -149,6 +157,7 @@
     const taskItem = document.createElement('div');
     const titleItem = document.createElement('div');
     const dateItem = document.createElement('div');
+    const notesItem = document.createElement('div');
     const checkBoxItem = document.createElement('div');
     const checkItem = document.createElement('i');
     
@@ -159,6 +168,7 @@
     dateItem.classList.add('date');
     notesItem.classList.add('notes');
     checkBoxItem.classList.add('check-box');
+    checkItem.classList.add('fa-check');
     checkItem.classList.add('fa');
 
     // Insert HTML
@@ -167,7 +177,7 @@
     `;
 
     dateItem.innerHTML = `
-    ${task.date}
+    Created: ${task.date}
     `;
 
     notesItem.innerHTML = `
@@ -218,7 +228,7 @@
   document.getElementById('mainTask-form').addEventListener('submit', function(e){
     // Get Form Values
     const title = document.getElementById('title').value,
-          category = document.getElementById('date').value,
+          date = document.getElementById('date').value,
           notes = document.getElementById('notes').value
 
 console.log(title, date, notes);
@@ -231,7 +241,7 @@ console.log(title, date, notes);
 
 
     // Validate
-    if(title === '' || category === '' || notes === '') {
+    if(title === '' || date === '' || notes === '') {
       // Error Alert
       UI.showAlert('Please fill in all fields', 'error');
     } else {
@@ -249,6 +259,7 @@ console.log(title, date, notes);
     
     e.preventDefault();
   });
+
 
   </script>
 
