@@ -217,12 +217,19 @@ $(document).ready(function(){
     }, 3000);
   }
 
+  
   // Clear Fields
   UI.prototype.clearFields = function() {
     document.getElementById('title').value = '';
     document.getElementById('date').value = '';
     document.getElementById('notes').value = '';
   }
+
+  // Exit Form
+  UI.prototype.exitForm = function() {
+      const exit = document.querySelector('.task-form');
+      exit.classList.remove('active');
+    }
 
   // Event Listeners
   document.getElementById('mainTask-form').addEventListener('submit', function(e){
@@ -246,14 +253,16 @@ console.log(title, date, notes);
       UI.showAlert('Please fill in all fields', 'error');
     } else {
       // Add task to List
-    ui.addTaskToList(task);
-
+      ui.addTaskToList(task);
 
       // Show success
       ui.showAlert('Task Added!', 'success');
 
-      // Clear fields
+      // Clear Fields
       ui.clearFields();
+
+      // Exit tast form
+      ui.exitForm();
     }
     
     
