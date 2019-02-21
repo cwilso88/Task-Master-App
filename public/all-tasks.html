@@ -192,7 +192,15 @@ $(document).ready(function(){
     taskItem.appendChild(notesItem);
     taskItem.appendChild(checkBoxItem);
     checkBoxItem.appendChild(checkItem);
+
+
+    // Click Done/Not Done 
+    taskItem.onclick = 
+        document.querySelector('.check-box').style.color = '#7ad4e8';
+        document.querySelector('.check-box').style.border = '3px solid #A9A9A9';
   }
+
+  
 
   // Show Alert 
 
@@ -272,13 +280,13 @@ console.log(title, date, notes);
 
   // ******* CHECK BOX CLICK ON/OFF ******
 
-  const taskDone = document.querySelector('.check-box');
+  const taskDone = document.querySelector('.task-box');
   taskDone.addEventListener('click', function(){
         document.querySelector('.check-box').style.color = '#7ad4e8';
         document.querySelector('.check-box').style.border = '3px solid #A9A9A9';
       })
       
-  const taskNotDone = document.querySelector('.check-box');
+  const taskNotDone = document.querySelector('.task-box');
   taskDone.addEventListener('dblclick', function(){
         document.querySelector('.check-box').style.color = '#CAEBF2';
         document.querySelector('.check-box').style.border = '3px solid #EFEFEF';
