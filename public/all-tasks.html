@@ -195,14 +195,19 @@ $(document).ready(function(){
 
 
     // Click Done/Not Done 
-    function taskDone() {
-      const checkMark = document.getElementsByClassName('.fa-check');
-        this.checkMark.style.color = '#7ad4e8';
+    function getTarget(e) {
+      if(!e) {
+        e = window.event;
+      }
+      return e.target || e.srcElement; 
     }
 
-
-    checkBoxItem.addEventListener('click', taskDone, false);
-  }
+    function taskDone(e) {
+      const target = getTarget(e);
+      const checkBox = target.parentNode;
+      const taskBox = target.parentNode.parentNode;
+      taskBox.style.color = 'blue';
+    }
 
   
 
